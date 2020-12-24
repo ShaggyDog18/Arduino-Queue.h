@@ -32,8 +32,7 @@
  * 
  */
 
-#ifndef QUEUE_H
-#define QUEUE_H
+#pragma once 
 
 #include <Arduino.h>
 
@@ -113,11 +112,14 @@ T Queue<T>::peek() {
   else return _data[_front];
 }
 
+
+inline bool isEmpty(void) {
+		return (!_count) ? true : false; }
+
+
 template<class T>
 void Queue<T>::clear() 
 {
   _front = _back;
   _count = 0;
 }
-
-#endif
