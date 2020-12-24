@@ -56,40 +56,38 @@ class Queue {
     inline int count();
     inline int front();
     inline int back();
-    void push(const T &item);
+    bool push(const T &item);
     T peek();
     T pop();
     void clear();
 };
 
 template<class T>
-inline int Queue<T>::count() 
-{
+inline int Queue<T>::count() {
   return _count;
 }
 
 template<class T>
-inline int Queue<T>::front() 
-{
+inline int Queue<T>::front() {
   return _front;
 }
 
 template<class T>
-inline int Queue<T>::back() 
-{
+inline int Queue<T>::back() {
   return _back;
 }
 
 template<class T>
-void Queue<T>::push(const T &item)
-{
+bool Queue<T>::push(const T &item) {
   if(_count < _maxitems) { // Drops out when full
     _data[_back++]=item;
     ++_count;
     // Check wrap around
     if (_back > _maxitems)
       _back -= (_maxitems + 1);
-  }
+    return true;
+  } else 
+      return false;
 }
 
 template<class T>
@@ -113,8 +111,8 @@ T Queue<T>::peek() {
 }
 
 
-inline bool isEmpty(void) {
-		return (!_count) ? true : false; }
+inline bool isEmpty( void ) {
+  return (!_count) ? true : false; }
 
 
 template<class T>
