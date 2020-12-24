@@ -78,12 +78,6 @@ inline int Queue<T>::back() {
 }
 
 template<class T>
-inline bool Queue<T>::isEmpty( void ) {
-  //return (!_count) ? true : false;
-  return (!_count);
-}
-
-template<class T>
 bool Queue<T>::push(const T &item) {
   if(_count < _maxitems) { // Drops out when full
     _data[_back++]=item;
@@ -93,7 +87,7 @@ bool Queue<T>::push(const T &item) {
       _back -= (_maxitems + 1);
     return true;
   } else 
-      return false;
+    return false;
 }
 
 template<class T>
