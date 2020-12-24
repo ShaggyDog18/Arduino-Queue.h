@@ -111,8 +111,7 @@ T Queue<T>::peek() {
 }
 
 template<class T>
-void Queue<T>::clear() 
-{
+void Queue<T>::clear() {
   _front = _back;
   _count = 0;
 }
