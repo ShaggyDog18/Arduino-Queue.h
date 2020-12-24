@@ -112,7 +112,9 @@ T Queue<T>::peek() {
 
 
 inline bool isEmpty( void ) {
-  return (!_count) ? true : false; }
+  //return (!_count) ? true : false;
+  return (!_count);
+}
 
 
 template<class T>
